@@ -1,8 +1,8 @@
 PROJECT = awesomesauce
 BUILD_DIR = bin
 
-SHARED_DIR = ../my-common-code
-CFILES = my-project.c
+SHARED_DIR = ../shared
+CFILES = firmware.c
 CFILES += api.c
 AFILES += api-asm.S
 
@@ -11,6 +11,17 @@ DEVICE=stm32f407vgt6
 OOCD_FILE = board/stm32f4discovery.cfg
 
 # You shouldn't have to edit anything below here.
+all:
+elf: $(PROJECT).elf
+bin: $(PROJECT).bin
+hex: $(PROJECT).hex
+
+GENERATED_BINARIES=$(PROJECT).elf $(PROJECT).bin $(PROJECT).hex $(PROJECT).map
+
+clean:
+	rm $(GENERATED_BINARIES)
+
+
 VPATH += $(SHARED_DIR)
 INCLUDES += $(patsubst %,-I%, . $(SHARED_DIR))
 OPENCM3_DIR=../libopencm3
