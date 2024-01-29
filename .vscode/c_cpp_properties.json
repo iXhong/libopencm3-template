@@ -3,16 +3,20 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/bootloader/inc"
+                "${workspaceFolder}/libopencm3/",
+                "${workspaceFolder}/libopencm3/include/"
             ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "${workspaceFolder}/libopencm3/",
+                    "${workspaceFolder}/libopencm3/include/"
+                ]
+            },
             "defines": [
-                "STM32F4",
-                "__ARM_ARCH_7EM__"
+                "STM32F1"
             ],
             "compilerPath": "/usr/bin/arm-none-eabi-gcc",
-            "cStandard": "c99",
-            "cppStandard": "c++14",
             "intelliSenseMode": "gcc-arm"
         }
     ],
